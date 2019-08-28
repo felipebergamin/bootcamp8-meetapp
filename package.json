@@ -18,7 +18,9 @@
     "sucrase": "^3.10.1"
   },
   "dependencies": {
+    "dotenv": "^8.1.0",
     "express": "^4.17.1",
+    "pg": "^7.12.1",
     "sequelize": "^5.17.0"
   }
 }
