@@ -22,5 +22,6 @@ router.post('/files', upload.single('file'), FileController.store);
 router.post('/meetups', MeetupController.store);
 router.get('/meetups', MeetupController.index);
 router.put('/meetups/:meetupId', MeetupController.update);
+router.delete('/meetups/:meetupId', MeetupController.delete);
 
 export default router;
