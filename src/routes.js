@@ -10,6 +10,7 @@ import authMiddleware from './app/middlewares/auth';
 import FileController from './app/controllers/FileController';
 import MeetupController from './app/controllers/MeetupController';
 import SubscriptionController from './app/controllers/SubscriptionController';
+import MeetupManagerController from './app/controllers/MeetupManagerController';
 
 const upload = multer(multerConfig);
 const router = new Router();
@@ -20,6 +21,8 @@ router.post('/auth', TokenController.store);
 router.use(authMiddleware);
 router.put('/users', UserController.update);
 router.post('/files', upload.single('file'), FileController.store);
+
+router.get('/mymeetups', MeetupManagerController.index);
 
 router
   .route('/meetups')
