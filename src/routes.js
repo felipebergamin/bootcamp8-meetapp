@@ -8,6 +8,7 @@ import TokenController from './app/controllers/TokenController';
 
 import authMiddleware from './app/middlewares/auth';
 import FileController from './app/controllers/FileController';
+import MeetupController from './app/controllers/MeetupController';
 
 const upload = multer(multerConfig);
 const router = new Router();
@@ -18,5 +19,6 @@ router.post('/auth', TokenController.store);
 router.use(authMiddleware);
 router.put('/users', UserController.update);
 router.post('/files', upload.single('file'), FileController.store);
+router.post('/meetups', MeetupController.store);
 
 export default router;
