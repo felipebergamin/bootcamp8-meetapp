@@ -35,5 +35,6 @@ router
   .delete(MeetupController.delete);
 
 router.post('/meetups/:meetupId/subscribe', SubscriptionController.store);
+router.get('/subscriptions', SubscriptionController.index);
 
 export default router;
