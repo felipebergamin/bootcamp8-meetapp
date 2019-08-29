@@ -11,5 +11,6 @@ router.post('/users', UserController.store);
 router.post('/auth', TokenController.store);
 
 router.use(authMiddleware);
+router.put('/users', UserController.update);
 
 export default router;
