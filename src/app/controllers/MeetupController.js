@@ -30,6 +30,23 @@ class MeetupController {
 
     return res.json(meetup);
   }
+
+  async update(req, res) {
+    const meetup = await Meetup.findByPk(req.params.meetupId);
+
+    if (isBefore(meetup.date_time, new Date())) {
+      return res.status(400).json({ error: "You can't update past meetups" });
+    }
+
+    if (meetup.user_id !== req.user.id) {
+      return res
+        .status(401)
+        .json({ error: "You can't update meetups managed by others" });
+    }
+
+    await meetup.update(req.body);
+    return res.json(meetup);
+  }
 }
 
 export default new MeetupController();
